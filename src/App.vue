@@ -15,7 +15,6 @@
     </div>
     <div class="container">
       <router-view/>
-
       <div class="footer">
         <div class="top">
           <img class="f1" src="./assets/fo.png" />
@@ -52,9 +51,14 @@ export default {
     return {
       menu: [
         {'c': '首页','e': 'Home page','href': "/"},
-        {'c': '关于','e': 'With regard to','href': "list"},
-        {'c': '美食体验','e': 'Food experience','href': "/"}
-        ]
+        {'c': '关于','e': 'With regard to','href': "/list"},
+        {'c': '美食体验','e': 'Food experience','href': "/food"},
+        {'c': '店铺展示','e': 'Store display','href': "/store"},
+        {'c': '小尚快报','e': 'Small letters yet','href': "/news"},
+        {'c': '小尚优势','e': 'Small is advantage','href': "/advantage"},
+        {'c': '加入小尚','e': 'Add in the minor','href': "/join"},
+        {'c': '联系我们','e': 'Contact us','href': "/contact"}
+      ]
     }
   }
 }
