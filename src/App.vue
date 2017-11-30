@@ -6,41 +6,42 @@
     <div class="menu">
       <ul>
         <li v-for="item in menu" :key=item.c>
-          <div>{{item.c}}</div>
-          <div class="little">{{item.e}}</div>
+          <router-link :to="item.href">
+            <div>{{item.c}}</div>
+            <div class="little">{{item.e}}</div>
+          </router-link>
         </li>
       </ul>
     </div>
     <div class="container">
+      <router-view/>
+
+      <div class="footer">
+        <div class="top">
+          <img class="f1" src="./assets/fo.png" />
+          <p>总部地址：河北省秦皇岛市海港区 海阳路与红旗路交叉口215-1号</p>
+          <p>投资热线：400-0335-608</p>
+          <img class="f2" src="./assets/fot.png" />
+        </div>
+        <div class="bottom">
+          <div class="left">
+            <img src="./assets/wx.png" />
+            <span>微信公众号</span>
+          </div>
+          <div class="left">
+            <img src="./assets/wb.png" />
+            <span>微博官网</span>
+          </div>
+
+          <div class="right">产品展示</div>
+          <div class="right">品牌介绍</div>
+          <div class="right">最新动态</div>
+          <div class="right">返回顶部</div>
+        </div>
+      </div>
 
     </div>
 
-    <div class="footer">
-      <div class="top">
-        <img class="f1" src="./assets/fo.png" />
-        <p>总部地址：河北省秦皇岛市海港区 海阳路与红旗路交叉口215-1号</p>
-        <p>投资热线：400-0335-608</p>
-        <img class="f2" src="./assets/fot.png" />
-      </div>
-      <div class="bottom">
-        <div class="left">
-          <img src="./assets/wx.png" />
-          <span>微信公众号</span>
-        </div>
-        <div class="left">
-          <img src="./assets/wb.png" />
-          <span>微博官网</span>
-        </div>
-
-        <div class="right">产品展示</div>
-        <div class="right">品牌介绍</div>
-        <div class="right">最新动态</div>
-        <div class="right">返回顶部</div>
-      </div>
-    </div>
-    <router-link to="/">Home</router-link>
-    <router-link to="/list">list</router-link>
-    <router-view/>
   </div>
 </template>
 
@@ -50,9 +51,9 @@ export default {
   data () {
     return {
       menu: [
-        {'c':'首页','e':'Home page'},
-        {'c':'关于','e':'With regard to'},
-        {'c':'美食体验','e':'Food experience'}
+        {'c': '首页','e': 'Home page','href': "/"},
+        {'c': '关于','e': 'With regard to','href': "list"},
+        {'c': '美食体验','e': 'Food experience','href': "/"}
         ]
     }
   }
@@ -68,6 +69,10 @@ export default {
   color: #333;
 }
 *{margin: 0;padding: 0}
+a{    
+  color: #333;
+  text-decoration: none;
+  }
 .log{
   padding: 50px 0;
   background-color: #f6bb41;
@@ -90,7 +95,6 @@ export default {
   font-size: 10px;
 }
 .container{
-  height: 100px;
   background: url("./assets/bg2.png");
 }
 .footer{
